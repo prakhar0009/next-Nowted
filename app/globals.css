@@ -1,26 +1,46 @@
 @import "tailwindcss";
+@theme {
+  --color-primary: rgba(0, 0, 0, 0.7);
+  --color-primary-hover: #4f46e5;
+  --color-secondary: rgba(0, 0, 0, 1);
+  --color-secondary-hover: rgba(0, 0, 0, 0.05);
+  --color-middle: rgba(0, 0, 0, 0.5);
+  --color-middleScreen: rgba(245, 245, 245, 1);
+  --color-middle-active: rgba(0, 0, 0, 0.08);
+  --color-overlaybg: rgba(255, 255, 255, 0.6);
+  --color-overlay: #f2f2f2;
+  --color-mainbg: #ffffff;
+  --color-text: #000000;
+}
+
+.dark {
+  --color-primary: rgba(255, 255, 255, 0.6);
+  --color-primary-hover: #312eb5;
+  --color-secondary: rgba(255, 255, 255, 1);
+  --color-secondary-hover: rgba(255, 255, 255, 0.03);
+  --color-middle: rgba(255, 255, 255, 0.5);
+  --color-middleScreen: rgba(28, 28, 28, 1);
+  --color-middle-active: rgba(255, 255, 255, 0.1);
+  --color-overlaybg: rgba(0, 0, 0, 0.6);
+  --color-overlay: #333333;
+  --color-mainbg: #181818;
+  --color-text: #ffffff;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  height: 100%;
+}
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #181818;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.hide-scrollbar {
+  scrollbar-color: rgb(70, 64, 64) rgba(0, 0, 0, 0);
 }
