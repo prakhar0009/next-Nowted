@@ -5,9 +5,13 @@ import { usePathname } from "next/navigation";
 import { useNotes } from "@/context/NoteContext";
 import type { Note } from "@/types/type";
 
+type RecentNotesContextType = {
+  recentNotes: Note[];
+};
+
 const RecentFolder = () => {
-  const { recentNotes } = useNotes();
-  const pathname = usePathname();
+  const { recentNotes } = useNotes() as RecentNotesContextType;
+  const pathname: string = usePathname();
 
   return (
     <div className="w-full">
@@ -17,7 +21,7 @@ const RecentFolder = () => {
       <div className="flex flex-col gap-1">
         {recentNotes?.map((curr: Note) => {
           const path = `/${curr.folderId}/${curr.id}`;
-          const isActive = pathname === path;
+          const isActive: boolean = pathname === path;
 
           return (
             <Link

@@ -70,8 +70,10 @@ const Header = () => {
       <div className="flex flex-col gap-3">
         <div className="flex justify-between items-center">
           <img
-            src={Nowted}
+            src="/Nowted.svg"
             alt="Nowted_logo"
+            width={120}
+            height={40}
             className="dark:invert-0 invert-100"
           />
           <button
